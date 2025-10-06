@@ -1,0 +1,198 @@
+/* ========================================= */
+/* 1. ESTILOS GERAIS DA ONG (AFETAM AMBAS AS PÁGINAS) */
+/* ========================================= */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #343a40; /* Cor de texto principal escura */
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Estilos de link globais se necessário... */
+
+/* ========================================= */
+/* 2. ESTILOS DA HOME (index.html) */
+/* ========================================= */
+
+/* Body da Home (Layout Flex para empurrar o footer) */
+/* Este layout é necessário para a Home, mas o Cadastro pode ter seu próprio */
+body:has(header) { 
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER (Cabeçalho) */
+header {
+    background-color: #007bff; /* Azul primário */
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+/* NAVEGAÇÃO (Links) */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 25px;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: #28a745; /* Verde de destaque ao passar o mouse */
+    border-bottom: 2px solid #28a745;
+}
+
+/* MAIN (Conteúdo Principal da Home) */
+main {
+    flex: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* SECTION (Seção de Boas-vindas da Home) */
+section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #28a745;
+}
+
+section h2 {
+    color: #28a745;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+section p {
+    font-size: 1.1em;
+    color: #6c757d;
+}
+
+/* FOOTER (Rodapé da Home) */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Empurra o footer para o final */
+    width: 100%; /* Garante que ocupe a largura total */
+}
+
+/* ========================================= */
+/* 3. ESTILOS DO CADASTRO (cadastro.html) */
+/* ========================================= */
+
+/* Body Específico para o Cadastro (Centralização) */
+.body-cadastro {
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh;
+    padding: 20px 0; /* Espaço para respiro em cima e embaixo */
+    flex-direction: column; /* Para alinhar o footer abaixo do form */
+}
+
+/* Container do formulário */
+.form-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 90%; 
+    margin: 20px auto; 
+}
+
+/* Título */
+.form-container h1 { /* Seletor mais específico para não afetar o h1 do header */
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Botão Enviar */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Imagens */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.image-gallery img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+}

@@ -4,26 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG de Proteção Animal</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main section { display: none; }
+        main section.ativo { display: block; }
+        nav a {
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        nav a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
     <header>
         <h1>ONG de Proteção Animal</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="cadastro.html">Cadastro</a>
+            <a id="link-home">Home</a>
+            <a id="link-cadastro">Cadastro</a>
         </nav>
     </header>
     
     <main>
-        <section>
+        <!-- Seção Home -->
+        <section id="home" class="ativo">
             <h2>Bem-vindo à nossa ONG!</h2>
             <p>Estamos dedicados à proteção e bem-estar dos animais. Junte-se a nós na luta por um mundo melhor!</p>
+        </section>
+
+        <!-- Seção Cadastro -->
+        <section id="cadastro">
+            <h2>Cadastro de Voluntário</h2>
+            <form action="#" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+
+                <button type="submit">Enviar</button>
+            </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 ONG de Proteção Animal. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Alterna entre as seções
+        const linkHome = document.getElementById('link-home');
+        const linkCadastro = document.getElementById('link-cadastro');
+        const secHome = document.getElementById('home');
+        const secCadastro = document.getElementById('cadastro');
+
+        linkHome.addEventListener('click', () => {
+            secHome.classList.add('ativo');
+            secCadastro.classList.remove('ativo');
+        });
+
+        linkCadastro.addEventListener('click', () => {
+            secCadastro.classList.add('ativo');
+            secHome.classList.remove('ativo');
+        });
+    </script>
 </body>
 </html>
