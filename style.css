@@ -1,29 +1,19 @@
 /* ========================================= */
-/* 1. ESTILOS GERAIS DA ONG (AFETAM AMBAS AS PÁGINAS) */
+/* 1. ESTILOS GERAIS (AFETAM TODAS AS PÁGINAS) */
 /* ========================================= */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    color: #343a40; /* Cor de texto principal escura */
+    color: #343a40;
     line-height: 1.6;
-    min-height: 100vh;
-}
-
-/* Estilos de link globais se necessário... */
-
-/* ========================================= */
-/* 2. ESTILOS DA HOME (index.html) */
-/* ========================================= */
-
-/* Body da Home (Layout Flex para empurrar o footer) */
-/* Este layout é necessário para a Home, mas o Cadastro pode ter seu próprio */
-body:has(header) { 
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
-/* HEADER (Cabeçalho) */
+/* HEADER (Cabeçalho - Idêntico em todas as páginas) */
 header {
     background-color: #007bff; /* Azul primário */
     color: white;
@@ -34,12 +24,17 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+#logo { /* Estilo exclusivo para o logo principal no cabeçalho */
+    width: 150px;
+    height: auto;
+}
+
 header h1 {
     font-size: 1.8em;
     margin: 0;
 }
 
-/* NAVEGAÇÃO (Links) */
+/* NAVEGAÇÃO (Links - Idêntica em todas as páginas) */
 nav a {
     color: white;
     text-decoration: none;
@@ -54,44 +49,80 @@ nav a:hover {
     border-bottom: 2px solid #28a745;
 }
 
-/* MAIN (Conteúdo Principal da Home) */
+/* MAIN (Conteúdo Principal - Estrutura geral) */
 main {
     flex: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
-    padding: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
     width: 100%;
+    max-width: 1000px; /* Limita a largura do conteúdo principal */
+    padding: 40px;
+    margin: 0 auto; /* Centraliza o main */
 }
 
-/* SECTION (Seção de Boas-vindas da Home) */
-section {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #28a745;
-}
-
-section h2 {
-    color: #28a745;
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-section p {
-    font-size: 1.1em;
-    color: #6c757d;
-}
-
-/* FOOTER (Rodapé da Home) */
+/* FOOTER (Rodapé - Idêntico em todas as páginas) */
 footer {
     background-color: #343a40;
     color: white;
     text-align: center;
     padding: 15px 0;
-    margin-top: auto; /* Empurra o footer para o final */
-    width: 100%; /* Garante que ocupe a largura total */
+    width: 100%;
+}
+
+/* ================================================= */
+/* 2. ESTILOS ESPECÍFICOS DA PÁGINA SOBRE (sobre.html) */
+/* ================================================= */
+
+#sobre {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #28a745; /* Borda de destaque */
+}
+
+#sobre h2, #sobre h3 {
+    color: #28a745;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Container que organiza os membros da equipe */
+.equipe-membros {
+    display: flex; /* Para colocar os membros lado a lado */
+    justify-content: center; /* Centraliza os membros no container */
+    gap: 40px; /* Espaço entre os cartões de membro */
+    flex-wrap: wrap; /* Permite que os membros quebrem a linha em telas menores */
+    margin-top: 30px;
+}
+
+/* Estilos para cada membro da equipe (o card com foto e nome) */
+.membro {
+    text-align: center;
+    max-width: 180px; /* Limita a largura de cada card de membro */
+    margin-bottom: 20px;
+}
+
+/* ESTILOS PARA AS FOTOS DA EQUIPE (PEQUENAS E REDONDAS) */
+.foto-equipe {
+    width: 120px;            /* Largura da imagem */
+    height: 120px;           /* Altura da imagem para formar um círculo perfeito com border-radius */
+    border-radius: 50%;      /* Torna a imagem perfeitamente redonda */
+    object-fit: cover;       /* Corta a imagem para preencher o espaço sem distorcer */
+    border: 3px solid #007bff; /* Adiciona uma borda para destaque */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra para profundidade */
+    margin-bottom: 10px;     /* Espaçamento abaixo da imagem */
+    transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.foto-equipe:hover {
+    transform: scale(1.05); /* Pequeno zoom ao passar o mouse */
+}
+
+.membro p {
+    font-weight: bold;
+    color: #343a40;
+    margin: 0; /* Remove margem padrão do parágrafo */
 }
 
 /* ========================================= */
@@ -99,14 +130,16 @@ footer {
 /* ========================================= */
 
 /* Body Específico para o Cadastro (Centralização) */
+/* Este seletor assume que você adicionaria uma classe ao <body> na página de cadastro,
+   por exemplo: <body class="body-cadastro"> */
 .body-cadastro {
     background-color: #f9f9f9;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;    
     min-height: 100vh;
-    padding: 20px 0; /* Espaço para respiro em cima e embaixo */
-    flex-direction: column; /* Para alinhar o footer abaixo do form */
+    padding: 20px 0;
+    flex-direction: column; 
 }
 
 /* Container do formulário */
@@ -116,12 +149,12 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 350px;
-    max-width: 90%; 
-    margin: 20px auto; 
+    max-width: 90%;    
+    margin: 20px auto;    
 }
 
-/* Título */
-.form-container h1 { /* Seletor mais específico para não afetar o h1 do header */
+/* Título do Formulário */
+.form-container h1 { 
     text-align: center;
     color: #333;
     margin-bottom: 25px;
@@ -135,7 +168,7 @@ label {
     color: #555;
 }
 
-/* Inputs */
+/* Inputs de texto, email, tel, password */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -154,7 +187,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
 input[type="password"]:focus {
-    border-color: #4CAF50;
+    border-color: #007bff; /* Cor consistente com o cabeçalho */
     outline: none;
 }
 
@@ -162,7 +195,7 @@ input[type="password"]:focus {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #28a745; /* Verde para o botão de ação principal */
     border: none;
     color: white;
     font-size: 16px;
@@ -173,26 +206,5 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
-}
-
-/* Imagens */
-.image-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.image-gallery img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.image-gallery img:hover {
-    transform: scale(1.1);
+    background-color: #218838; /* Um tom de verde um pouco mais escuro */
 }
