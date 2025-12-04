@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - ONG de Proteção Animal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="body-cadastro">
+<header>
+<img src="assets/logo.png" id="logo" alt="logo"/>
+<h1>ONG de Proteção Animal</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="cadastro.html">Cadastro</a>
+<a href="sobre.html">Sobre nós</a>
+<a href="#" id="nav-admin">Admin</a>
+</nav>
+</header>
+
+
+<main>
+<div class="form-container" id="admin-container">
+<h1>Cadastro de Usuários (Admin)</h1>
+
+
+<label for="nome">Nome do usuário</label>
+<input type="text" id="nome" placeholder="Nome completo">
+
+
+<label for="email">E-mail</label>
+<input type="email" id="email" placeholder="email@exemplo.com">
+
+
+<button id="cadastrar">Cadastrar</button>
+<button id="limpar-campos" type="button" style="margin-top:8px; background-color:#6c757d;">Limpar campos</button>
+
+
+<hr style="margin:18px 0">
+
+
+<label for="pesquisar">Pesquisar (nome ou e-mail)</label>
+<input type="text" id="pesquisar" placeholder="Pesquisar usuário">
+
+
+<div style="margin-top:16px; display:flex; gap:8px;">
+<button id="excluir-todos" type="button" style="background-color:#dc3545;">Excluir todos</button>
+</div>
+
+
+<ul id="lista-usuarios" style="margin-top:18px;"></ul>
+</div>
+</main>
+
+
+<footer>
+<p>&copy; 2025 ONG de Proteção Animal. Todos os direitos reservados.</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
